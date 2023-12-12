@@ -23,7 +23,7 @@ import java.net.URI;
 public class MedicoController {
 
     @Autowired
-    private MedicoRepository medicoRepository;
+    public MedicoRepository medicoRepository;
 
     @PostMapping
     @Transactional
@@ -62,14 +62,6 @@ public class MedicoController {
     }
 
     
-
-    @DeleteMapping("/{id}")
-    @Transactional
-    public ResponseEntity eliminarMedico(@PathVariable Long id) {
-        Medico medico = medicoRepository.getReferenceById(id);
-        medico.desactivaMedico();
-        return ResponseEntity.noContent().build();
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<DatosRespuestaMedico> retornaDatosMedico(@PathVariable Long id) {
