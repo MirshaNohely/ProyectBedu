@@ -44,17 +44,6 @@ public class Medico {
     public record DatosActualizarMedico(@NotBlank String nombre, @NotBlank String documento, DatosDireccion direccion) {
     }
 
-    public void actualizarDatos(@Valid Medico.DatosActualizarMedico datosActualizarMedico) {
-        if (datosActualizarMedico.getNombre() != null) {
-            this.nombre = datosActualizarMedico.getNombre();
-        }
-        if (datosActualizarMedico.getDocumento() != null) {
-            this.documento = datosActualizarMedico.getDocumento();
-        }
-        if (datosActualizarMedico.getDireccion() != null) {
-            this.direccion = this.direccion.actualizarDireccion(datosActualizarMedico.getDireccion());
-        }
-    }
 
 
     public void desactivaMedico() {

@@ -61,14 +61,7 @@ public class MedicoController {
         return ResponseEntity.ok(medicoRepository.findByActivoTrue(paginacion).map(DatosListadoMedico::new));
     }
 
-    @PutMapping
-    @Transactional
-    public ResponseEntity actualizarMedico(@RequestBody @Valid Medico.DatosActualizarMedico datosActualizarMedico) {
-        Medico medico = medicoRepository.getReferenceById(datosActualizarMedico.id());
-        medico.actualizarDatos(datosActualizarMedico);
-        return ResponseEntity.ok(new DatosRespuestaMedico(medico.getId(), medico.getNombre(), medico.getEmail(), medico.getTelefono(), medico.getEspecialidad().toString(),
-                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(), medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(), medico.getDireccion().getComplemento())));
-    }
+    
 
     @DeleteMapping("/{id}")
     @Transactional
