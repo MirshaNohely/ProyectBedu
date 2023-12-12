@@ -1,5 +1,5 @@
 create table medicos(
-id bigint not null auto_increment,
+id bigint not null AUTO_INCREMENT,
 nombre varchar(100) not null,
 email varchar (100) not null unique,
 documento varchar(6) not null unique,
